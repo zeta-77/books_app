@@ -1,0 +1,33 @@
+ja:
+  index:
+    books: '本の一覧'
+    title: '本のタイトル'
+    memo: 'メモ'
+    author: '著者'
+    picture: '写真'
+    new_book: '新規登録'
+    show: '表示'
+    edit: '編集'
+    destroy: '削除'
+  show:
+    title: '本のタイトル'
+    memo: 'メモ'
+    author: '著者'
+    picture: '写真'
+    new_book: '新規登録'
+    edit: '編集'
+    back: '戻る'
+  edit:
+    editing_book: '編集'
+    show: '表示'
+    back: '戻る'
+  new_book:
+    new_book: '新規登録'
+    back: '戻る'
+  form:
+    title: 'タイトル'
+    memo: 'メモ'
+    author: '著者'
+    picture: '写真'
+    # view側で t(.titile), user_name: @user.name みたいな感じで設定できる
+#    title: '%{user_name}さんのユーザ情報を編集'
