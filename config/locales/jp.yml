@@ -29,5 +29,3 @@ ja:
     memo: 'メモ'
     author: '著者'
     picture: '写真'
-    # view側で t(.titile), user_name: @user.name みたいな感じで設定できる
-#    title: '%{user_name}さんのユーザ情報を編集'
