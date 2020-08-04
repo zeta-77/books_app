@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= t('index.books') %></h1>
+<h1><%= t('views.books.index.books') %></h1>
 
 <table>
   <thead>
     <tr>
-      <th><%= t('index.title') %></th>
-      <th><%= t('index.memo') %></th>
-      <th><%= t('index.author') %></th>
-      <th><%= t('index.picture') %></th>
+      <th><%= t('views.books.index.title') %></th>
+      <th><%= t('views.books.index.memo') %></th>
+      <th><%= t('views.books.index.author') %></th>
+      <th><%= t('views.books.index.picture') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,9 +20,9 @@
         <td><%= book.memo %></td>
         <td><%= book.author %></td>
         <td><%= book.picture %></td>
-        <td><%= link_to t('index.show'), book %></td>
-        <td><%= link_to t('index.edit'), edit_book_path(book) %></td>
-        <td><%= link_to t('index.destroy'), book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('views.books.index.show'), book %></td>
+        <td><%= link_to t('views.books.index.edit'), edit_book_path(book) %></td>
+        <td><%= link_to t('views.books.index.destroy'), book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to t('index.new_book'), new_book_path %>
+<%= link_to t('views.books.index.new_book'), new_book_path %>
