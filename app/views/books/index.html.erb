@@ -5,10 +5,10 @@
 <table>
   <thead>
     <tr>
-      <th><%= t('views.books.index.title') %></th>
-      <th><%= t('views.books.index.memo') %></th>
-      <th><%= t('views.books.index.author') %></th>
-      <th><%= t('views.books.index.picture') %></th>
+      <th><%= Book.human_attribute_name(:title) %></th>
+      <th><%= Book.human_attribute_name(:memo) %></th>
+      <th><%= Book.human_attribute_name(:author) %></th>
+      <th><%= Book.human_attribute_name(:picture) %></th>
       <th colspan="3"></th>
     </tr>
   </thead>

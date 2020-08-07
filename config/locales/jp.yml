@@ -39,4 +39,15 @@ ja:
           create: '本のデータが登録されました。'
           update: '本のデータが更新されました。'
           destroy: '本のデータが削除されました。'
-
+  activerecord:
+    errors:
+    models:
+      books: '本'
+    attributes:
+      book:
+        title: 'タイトル'
+        memo: 'メモ'
+        picture: '写真'
+        author: '著者'
+        created_at: '登録日時'
+        updated_at: '更新日時'
