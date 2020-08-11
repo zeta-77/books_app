@@ -58,5 +58,6 @@ group :test do
 end
 
 # 追加分
-gem "carrierwave"
-gem "rails-i18n"
+gem 'carrierwave'
+gem 'rails-i18n'
+gem 'kaminari'
