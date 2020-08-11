@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2020_07_21_130538) do
-
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.text "memo"
@@ -20,5 +19,4 @@ ActiveRecord::Schema.define(version: 2020_07_21_130538) do
     t.string "picture"
     t.string "author"
   end
-
 end
