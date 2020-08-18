@@ -1,10 +1,10 @@
 class BooksController < ApplicationController
-  PAGE_RECORD = 5
+  CONTENTS_PER_PAGE = 5
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   # GET /books
   def index
-    @books = Book.page(params[:page]).per(PAGE_RECORD)
+    @books = Book.page(params[:page]).per(CONTENTS_PER_PAGE)
   end
 
   # GET /books/1
