@@ -1,38 +1,67 @@
 ja:
   books:
     index:
-      book_list: '本の一覧'
-      new_book: '新規登録'
-      show: '表示'
-      edit: '編集'
-      destroy: '削除'
-      confirm: '削除します。よろしいですか？'
+      book_list: 本の一覧
+      new_book: 新規登録
+      show: 表示
+      edit: 編集
+      destroy: 削除
+      confirm: 削除します。よろしいですか？
     show:
-      new_book: '新規登録'
-      edit: '編集'
-      back: '戻る'
+      new_book: 新規登録
+      edit: 編集
+      back: 戻る
     edit:
-      editing_book: '編集'
-      show: '表示'
-      back: '戻る'
+      editing_book: 編集
+      show: 表示
+      back: 戻る
     new:
-      new_book: '新規登録'
-      back: '戻る'
+      new_book: 新規登録
+      back: 戻る
     create:
-      success: '本のデータが登録されました。'
+      success: 本のデータが登録されました。
     update:
-      success: '本のデータが更新されました。'
+      success: 本のデータが更新されました。
     destroy:
-      success: '本のデータが削除されました。'
+      success: 本のデータが削除されました。
+  users:
+    show:
+      user_show: ユーザ情報
+      book: 本の一覧
+    registrations:
+      new:
+        sign_up: サインアップ
+        characters_minimum: 文字以上
+    sessions:
+      new:
+        remember_me: パスワードを記憶
+        log_in: ログイン
+    shared:
+      links:
+        log_in: ログイン
+        sign_up: サインアップ
+        reissuing_password: パスワードを忘れた方はこちら
+    passwords:
+      new:
+        sending: 送信
+        reissuing_password: パスワードの再設定
   activerecord:
     errors:
     models:
-      books: '本'
+      books: 本
     attributes:
       book:
-        title: 'タイトル'
-        memo: 'メモ'
-        picture: '写真'
-        author: '著者'
-        created_at: '登録日時'
-        updated_at: '更新日時'
+        title: タイトル
+        memo: メモ
+        picture: 写真
+        author: 著者
+        created_at: 登録日時
+        updated_at: 更新日時
+      user:
+        id: ID
+        email: メールアドレス
+        zipcode: 郵便番号
+        address: 住所
+        introduction: 自己紹介
+        password: パスワード
+        password_confirmation: パスワード(確認)
