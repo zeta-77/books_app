@@ -24,6 +24,9 @@ ja:
       success: 本のデータが更新されました。
     destroy:
       success: 本のデータが削除されました。
+  layouts:
+    application:
+      log_out: ログアウト
   users:
     show:
       user_show: ユーザ情報

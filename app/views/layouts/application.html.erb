@@ -10,6 +10,10 @@
   </head>
 
   <body>
+
     <%= yield %>
+
+    <div><%= link_to t('.log_out'), destroy_user_session_path, method: "delete" if user_signed_in? %></div>
+
   </body>
 </html>
