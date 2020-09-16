@@ -1,0 +1,17 @@
+# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
+
+ja:
+  devise:
+    registrations:
+      signed_up: "ユーザ登録完了"
+    sessions:
+      signed_in: "ログインしました。"
+      signed_out: "ログアウトしました。"
+    passwords:
+      send_instructions: "パスワード再設定用のメールがあなたのメールアドレスに送信されました。"
+    mailer:
+      reset_password_instructions:
+        subject: "パスワードの再生設定"
+  errors:
+    messages:
+      not_saved: "入力内容に誤りがあります。下記のメッセージをご確認ください。"
