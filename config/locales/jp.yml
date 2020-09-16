@@ -48,6 +48,12 @@ ja:
       new:
         sending: 送信
         reissuing_password: パスワードの再設定
+      edit:
+        edit_password: パスワードの変更
+        new_password: 新しいパスワード
+        confirmation: パスワード(確認)
+        minimum_characters: 文字以上
+        send: 送信 
   activerecord:
     errors:
     models:
