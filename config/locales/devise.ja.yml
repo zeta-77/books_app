@@ -12,6 +12,9 @@ ja:
     mailer:
       reset_password_instructions:
         subject: "パスワードの再生設定"
+    failure:
+      invalid: "メールアドレスまたはパスワードに誤りがあります。"
+      not_found_in_database: "メールアドレスまたはパスワードに誤りがあります。"
   errors:
     messages:
       not_saved: "入力内容に誤りがあります。下記のメッセージをご確認ください。"
