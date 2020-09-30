@@ -1,0 +1,28 @@
+# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
+
+ja:
+  devise:
+    registrations:
+      signed_up: "ユーザ登録完了"
+    sessions:
+      signed_in: "ログインしました。"
+      signed_out: "ログアウトしました。"
+    passwords:
+      send_instructions: "パスワード再設定用のメールがあなたのメールアドレスに送信されました。"
+    failure:
+      invalid: "メールアドレスまたはパスワードに誤りがあります。"
+      not_found_in_database: "メールアドレスまたはパスワードに誤りがあります。"
+    mailer:
+      reset_password_instructions:
+        subject: "パスワードの再設定"
+  users:
+    mailer:
+      reset_password_instructions:
+        greeting: "パスワード再設定のご案内です。"
+        subject: "パスワードの再設定"
+        reset_instruction: "パスワードを変更する場合は、下記のURLにアクセスし新しいパスワードを設定してください。"
+        mail_discarding_notice: "このメールにお心当たりがない方は、このメールを破棄していただいて問題ありません。"
+        password_notice: "上記のURLからパスワードの変更をするまで現在のパスワードが変更されることはありません。"
+  errors:
+    messages:
+      not_saved: "入力内容に誤りがあります。下記のメッセージをご確認ください。"
