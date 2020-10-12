@@ -23,6 +23,9 @@ ja:
         reset_instruction: "パスワードを変更する場合は、下記のURLにアクセスし新しいパスワードを設定してください。"
         mail_discarding_notice: "このメールにお心当たりがない方は、このメールを破棄していただいて問題ありません。"
         password_notice: "上記のURLからパスワードの変更をするまで現在のパスワードが変更されることはありません。"
+    shared:
+      links:
+        sign_in_by: "アカウントでログイン"
   errors:
     messages:
       not_saved: "入力内容に誤りがあります。下記のメッセージをご確認ください。"
