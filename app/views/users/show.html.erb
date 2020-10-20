@@ -25,4 +25,9 @@
   <%= @user.introduction %>
 </p>
 
+<p>
+  <strong>Portrait:</strong>
+  <%= link_to @user.portrait.filename, @user.portrait if @user.portrait.attached? %>
+</p>
+
 <%= link_to t('.book'), books_path %>
