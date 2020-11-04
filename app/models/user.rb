@@ -22,4 +22,17 @@ class User < ApplicationRecord
     SecureRandom.uuid
   end
 
+  def follow(other_user)
+    follow_users.find_or_create_by(followed_user_id: other_user.id)
+  end
+
+  def unfollow(other_user)
+    follow_user = follow_users.find_by(followed_user_id: other_user.id)
+    follow_user.destroy if follow_user
+  end
+
+  def following?(other_user)
+    followings.include?(other_user)
+  end
+
 end
