@@ -1,4 +1,4 @@
-<h1><%= t('.user_show') %></h1>
+<h1><%= t('.user_inf') %></h1>
 
 <p>
   <strong><%= User.human_attribute_name(:id) %></strong>
@@ -32,18 +32,17 @@
 
 <% if current_user.following?(@user) %>
   <%= form_with(url: follow_user_path, html: { method: :delete }) do |f| %>
-    <%= f.submit 'フォローを解除する' %>
+    <%= f.submit t('.unfollow') %>
   <% end %>
 <% else %>
   <%= form_with(url: follow_users_path) do |f| %>
     <%= hidden_field_tag :followed_user_id, @user.id %>
-    <%= f.submit 'フォローする' %>
+    <%= f.submit t('.follow') %>
   <% end %>
 <% end %>
 
+<br>
+
 <%= link_to t('.book'), books_path %>
 
-<br>
-<br>
-
-<%= link_to t('.profile'), profile_path %>
+<%= render 'books/link' %>

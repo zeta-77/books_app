@@ -25,13 +25,26 @@ ja:
       success: 本のデータが更新されました。
     destroy:
       success: 本のデータが削除されました。
+    link:
+      profile: アカウント情報
+      users: ユーザ一覧
   layouts:
     application:
       log_out: ログアウト
-  users:
+  profiles:
     show:
-      user_show: ユーザ情報
       book: 本の一覧
+      profile: アカウント情報
+  users:
+    index:
+      users: ユーザ一覧
+      book: 本の一覧
+      profile: アカウント情報
+    show:
+      user_inf: ユーザ情報
+      book: 本の一覧
+      follow: フォローする
+      unfollow: フォローを解除する
     registrations:
       new:
         sign_up: サインアップ
