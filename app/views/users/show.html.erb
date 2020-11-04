@@ -30,4 +30,15 @@
   <%= link_to @user.portrait.filename, @user.portrait if @user.portrait.attached? %>
 </p>
 
+<% if current_user.following?(@user) %>
+  <%= form_with(url: follow_user_path, html: { method: :delete }) do |f| %>
+    <%= f.submit 'フォローを解除する' %>
+  <% end %>
+<% else %>
+  <%= form_with(url: follow_users_path) do |f| %>
+    <%= hidden_field_tag :followed_user_id, @user.id %>
+    <%= f.submit 'フォローする' %>
+  <% end %>
+<% end %>
+
 <%= link_to t('.book'), books_path %>
