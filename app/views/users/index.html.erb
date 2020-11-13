@@ -11,11 +11,11 @@
 
   <tbody class="users">
     <% @users.each do |user| %>
-      <% if user.id != @current_user.id %>
+      <% if user.id != current_user.id %>
         <tr>
           <td><%= user.id %></td>
           <td><%= link_to user.email, user_path(user) %></td>
-          <td><%= @current_user.following?(user) ? t('.following') : '' %></td>
+          <td><%= current_user.following?(user) ? t('.following') : '' %></td>
         </tr>
       <% end %>
     <% end %>

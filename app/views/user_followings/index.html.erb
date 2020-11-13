@@ -1,0 +1,10 @@
+<h1><%= t('.user') %><%= params[:id] %><%= t('.followings') %></h1>
+
+<%= render partial: 'shared/user_followings', locals: { following_users: @users } %>
+
+<br>
+
+<%= link_to t('.book'), books_path %>
+
+<%= render 'books/link' %>
+

@@ -35,6 +35,13 @@ ja:
     show:
       book: 本の一覧
       profile: アカウント情報
+      followings: フォローしているユーザの一覧
+      users: ユーザ一覧
+  user_followings:
+    index:
+      user: ユーザ
+      followings: がフォローしているユーザの一覧
+      book: 本の一覧
   users:
     index:
       users: ユーザ一覧
@@ -45,6 +52,7 @@ ja:
       book: 本の一覧
       follow: フォローする
       unfollow: フォローを解除する
+      followings: フォローしているユーザの一覧
     registrations:
       new:
         sign_up: サインアップ

@@ -2,37 +2,42 @@
 
 <p>
   <strong><%= User.human_attribute_name(:id) %></strong>
-  <%= @user.id %>
+  <%= current_user.id %>
 </p>
 
 <p>
   <strong><%= User.human_attribute_name(:email) %></strong>
-  <%= @user.email %>
+  <%= current_user.email %>
 </p>
 
 <p>
   <strong><%= User.human_attribute_name(:zipcode) %></strong>
-  <%= @user.zipcode %>
+  <%= current_user.zipcode %>
 </p>
 
 <p>
   <strong><%= User.human_attribute_name(:address) %></strong>
-  <%= @user.address %>
+  <%= current_user.address %>
 </p>
 
 <p>
   <strong><%= User.human_attribute_name(:introduction) %></strong>
-  <%= @user.introduction %>
+  <%= current_user.introduction %>
 </p>
 
 <p>
   <strong><%= User.human_attribute_name(:portrait) %></strong>
-  <%= link_to @user.portrait.filename, @user.portrait if @user.portrait.attached? %>
+  <%= link_to current_user.portrait.filename, current_user.portrait if current_user.portrait.attached? %>
 </p>
+
+<br>
+<h1><%= t('.followings') %></h1>
+<%= render partial: 'shared/user_followings', locals: { following_users: @following_users } %>
+
+<br>
 
 <%= link_to t('.book'), books_path %>
 
 <br>
-<br>
 
-<%= link_to 'ユーザー一覧', users_path %>
+<%= link_to t('.users'), users_path %>
