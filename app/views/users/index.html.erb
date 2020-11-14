@@ -1,0 +1,31 @@
+<h1><%= t('.users') %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>email</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+
+  <tbody class="users">
+    <% @users.each do |user| %>
+      <% if user.id != current_user.id %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= link_to user.email, user_path(user) %></td>
+          <td><%= current_user.following?(user) ? t('.following') : '' %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.book'), books_path %>
+
+<br>
+<br>
+
+<%= link_to t('.profile'), profile_path %>
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_16_091232) do
+ActiveRecord::Schema.define(version: 2020_11_12_110237) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 2020_10_16_091232) do
     t.string "author"
   end
 
+  create_table "follow_users", force: :cascade do |t|
+    t.integer "following_user_id", null: false
+    t.integer "followed_user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["followed_user_id"], name: "index_follow_users_on_followed_user_id"
+    t.index ["following_user_id", "followed_user_id"], name: "index_follow_users_on_following_user_id_and_followed_user_id", unique: true
+    t.index ["following_user_id"], name: "index_follow_users_on_following_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -61,4 +71,6 @@ ActiveRecord::Schema.define(version: 2020_10_16_091232) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "follow_users", "users", column: "followed_user_id"
+  add_foreign_key "follow_users", "users", column: "following_user_id"
 end

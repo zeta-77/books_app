@@ -1,0 +1,43 @@
+<h1><%= t('.profile') %></h1>
+
+<p>
+  <strong><%= User.human_attribute_name(:id) %></strong>
+  <%= current_user.id %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:email) %></strong>
+  <%= current_user.email %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:zipcode) %></strong>
+  <%= current_user.zipcode %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:address) %></strong>
+  <%= current_user.address %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:introduction) %></strong>
+  <%= current_user.introduction %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:portrait) %></strong>
+  <%= link_to current_user.portrait.filename, current_user.portrait if current_user.portrait.attached? %>
+</p>
+
+<br>
+<h1><%= t('.followings') %></h1>
+<%= render partial: 'shared/user_followings', locals: { following_users: @following_users } %>
+
+<br>
+
+<%= link_to t('.book'), books_path %>
+
+<br>
+
+<%= link_to t('.users'), users_path %>
