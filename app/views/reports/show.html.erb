@@ -1,0 +1,24 @@
+<h1><%= t('.report_detail') %></h1>
+
+<p>
+  <strong><%= t('.title') %></strong>
+  <%= @showed_object.title %>
+</p>
+
+<p>
+  <strong><%= t('.content') %></strong>
+  <%= @showed_object.content %>
+</p>
+
+<br>
+
+<%= link_to t('.edit'), edit_report_path(@showed_object) %> |
+<%= link_to t('.back'), reports_path %>
+
+<br>
+<br>
+<br>
+
+<%= render 'shared/comment' %>
+
+<%= render 'shared/link' %>

@@ -11,6 +11,8 @@ class User < ApplicationRecord
   has_many :reverse_of_follow_users, class_name: 'FollowUser', foreign_key: 'followed_user_id'
   has_many :followers, through: :reverse_of_follow_users, source: :following_user
 
+  has_many :comments
+
   def self.find_for_github_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
       user.email = auth.info.email
