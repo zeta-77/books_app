@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'user_followings/index'
   root to: 'books#index'
   resources :books
   devise_for :users, controllers: {
