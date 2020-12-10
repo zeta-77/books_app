@@ -10,6 +10,8 @@ class BooksController < ApplicationController
 
   # GET /books/1
   def show
+    @showed_object = Book.find(params[:id])
+    @comments = Comment.where(commentable_id: params[:id], commentable_type: Book.name)
   end
 
   # GET /books/new

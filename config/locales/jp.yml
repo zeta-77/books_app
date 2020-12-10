@@ -8,7 +8,9 @@ ja:
       destroy: 削除
       confirm: 削除します。よろしいですか？
       profile: 登録情報確認
+      reports: 日報一覧
     show:
+      book_detail: 本の詳細
       new_book: 新規登録
       edit: 編集
       back: 戻る
@@ -25,6 +27,41 @@ ja:
       success: 本のデータが更新されました。
     destroy:
       success: 本のデータが削除されました。
+  reports:
+    index:
+      reports: 日報一覧
+      title: タイトル
+      show: 詳細
+      edit: 編集
+      destroy: 削除
+      content: 内容
+      new_report: 日報の新規作成
+      books: 本の一覧
+    show:
+      report_detail: レポート詳細
+      title: タイトル
+      content: 内容
+      edit: 編集
+      back: 戻る
+    edit:
+      editing_report: 日報の編集
+      show: 詳細
+      back: 戻る
+    new:
+      new_report: 日報の新規作成
+      back: 戻る
+    create:
+      success: 日報が登録されました。
+    update:
+      success: 日報が更新されました。
+    destroy:
+      success: 日報が削除されました。
+  shared:
+    comment:
+      comment: コメント
+      commenting: コメントする
+      content: 投稿内容
+      delete: 削除
     link:
       profile: アカウント情報
       users: ユーザ一覧
@@ -97,3 +134,6 @@ ja:
         password: パスワード
         password_confirmation: パスワード(確認)
         portrait: 画像
+      report:
+        title: タイトル
+        content: 内容

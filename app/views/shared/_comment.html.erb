@@ -1,0 +1,33 @@
+<h1><%= t('.comment') %></h1>
+
+<% @comments.each do |c| %>
+  <div>
+  </div>
+    <%= c.created_at.to_date %>
+    <%= c.user.email %>
+  <div>
+    <%= c.content %>
+  </div>
+  <% if current_user.id == c.user_id %>
+    <div>
+      <%= link_to t('.delete'), comment_path(c), method: :delete  %>
+    </div>
+  <% end %>
+    
+  <br>
+<% end %>
+
+<%= form_with(url: comments_path) do |f| %>
+  <%= hidden_field_tag :commentable_id, @showed_object.id %>
+  <%= hidden_field_tag :commentable_type, @showed_object.class %>
+  <%= hidden_field_tag :user_id, current_user.id %>
+
+  <div class="field">
+    <%= f.label :content, t('.content') %>
+    <%= f.text_area :content %>
+  </div>
+
+  <div class='action'>  
+    <%= f.submit t('.commenting') %>
+  </div>
+<% end %>
