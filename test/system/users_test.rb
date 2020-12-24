@@ -1,7 +1,7 @@
 require "application_system_test_case"
 
 class UsersTest < ApplicationSystemTestCase
-  test 'userの一覧表示' do
+  test 'ユーザ一覧ページで、ページを表示したとき、ログインユーザ以外のユーザの一覧が表示されること' do
     login_user = FactoryBot.create(:user)
     other_user = FactoryBot.create(:user)
     sign_in_as(login_user)    
@@ -11,7 +11,7 @@ class UsersTest < ApplicationSystemTestCase
     assert_text other_user.email
   end
 
-  test '特定のユーザをクリック' do
+  test 'ユーザ一覧ページで、特定のユーザをクリックしたとき、ユーザ詳細画面が表示されること' do
     login_user = FactoryBot.create(:user)
     other_user = FactoryBot.create(:user)
     sign_in_as(login_user)
@@ -22,7 +22,7 @@ class UsersTest < ApplicationSystemTestCase
     assert_text other_user.email
   end
 
-  test '特定のユーザをフォロー' do
+  test 'ユーザ詳細ページで、フォローボタンを押したら、フォロー状態になること' do
     login_user = FactoryBot.create(:user)
     followed_user = FactoryBot.create(:user)
     sign_in_as(login_user)
@@ -34,7 +34,7 @@ class UsersTest < ApplicationSystemTestCase
     assert_text 'Following'
   end
 
-  test '特定のユーザがフォローしているユーザの一覧' do
+  test 'following_userのユーザの詳細ページで、ページを表示したとき、following_userがフォローしているユーザの一覧を表示すること' do
     login_user = FactoryBot.create(:user)
     following_user = FactoryBot.create(:user)
     followed_user = FactoryBot.create(:user)
