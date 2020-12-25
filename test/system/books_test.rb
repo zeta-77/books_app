@@ -61,10 +61,12 @@ class BooksTest < ApplicationSystemTestCase
 
   test 'Bookの削除' do
     visit books_url
+    assert_text 'Ruby超入門'
     accept_confirm do
       click_on '削除'
     end
     page.assert_current_path(books_path)
     assert_selector 'p#notice', text: '本のデータが削除されました。'
+    assert_no_text 'Ruby超入門'
   end
 end

@@ -1,6 +1,6 @@
 require "application_system_test_case"
 
-class CommnetsTest < ApplicationSystemTestCase
+class CommentsTest < ApplicationSystemTestCase
   setup do
     FactoryBot.create(:ruby_book)
     FactoryBot.create(:report)
@@ -50,8 +50,10 @@ class CommnetsTest < ApplicationSystemTestCase
     click_on '詳細'
     fill_in '投稿内容', with: 'ナイスな日報ですね。'
     click_on 'コメントする'
+    assert_text 'ナイスな日報ですね。'
     click_on '削除'
 
+    assert_no_text 'ナイスな日報ですね。'
     assert_selector 'h1', text: 'レポート詳細'
   end
 end

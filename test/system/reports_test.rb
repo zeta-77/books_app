@@ -56,11 +56,13 @@ class ReportsTest < ApplicationSystemTestCase
 
   test 'Reportの削除' do
     visit reports_url
+    assert_text '12月10日の日報'
     accept_confirm do
       click_on '削除'
     end
     page.assert_current_path(reports_path)
     assert_selector 'p#notice', text: '日報が削除されました。'
+    assert_no_text '12月10日の日報'
     assert_selector 'h1', text: '日報一覧'
   end
 end
