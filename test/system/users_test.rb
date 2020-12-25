@@ -17,6 +17,7 @@ class UsersTest < ApplicationSystemTestCase
     sign_in_as(login_user)
     visit users_url
     click_on other_user.email
+    page.assert_current_path(user_path(other_user))
 
     assert_selector 'h1', text: 'ユーザ情報'
     assert_text other_user.email
@@ -43,6 +44,7 @@ class UsersTest < ApplicationSystemTestCase
     visit users_url
     click_on following_user.email
     click_on 'フォローしているユーザの一覧'
+    page.assert_current_path(following_user_path(following_user))
     
     assert_selector 'h1', text: "ユーザ#{following_user.id}がフォローしているユーザの一覧"
     assert_text followed_user.email

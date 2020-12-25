@@ -7,9 +7,8 @@ class CommnetsTest < ApplicationSystemTestCase
   end
 
   test "本へのコメント" do
-    login_user = FactoryBot.create(:login_user)
+    login_user = FactoryBot.create(:user)
     sign_in_as(login_user)
-
     visit books_url
     click_on '表示'
 
@@ -21,8 +20,7 @@ class CommnetsTest < ApplicationSystemTestCase
   end
 
   test "本へのコメント削除" do
-    sign_in_as(FactoryBot.create(:login_user))
-
+    sign_in_as(FactoryBot.create(:user))
     visit books_url
     click_on '表示'
     fill_in '投稿内容', with: '素敵な本ですね。'
@@ -33,7 +31,7 @@ class CommnetsTest < ApplicationSystemTestCase
   end
 
   test "日報へのコメント" do
-    login_user = FactoryBot.create(:login_user)
+    login_user = FactoryBot.create(:user)
     sign_in_as(login_user)
 
     visit reports_url
@@ -47,8 +45,7 @@ class CommnetsTest < ApplicationSystemTestCase
   end
 
   test "日報へのコメント削除" do
-    sign_in_as(FactoryBot.create(:login_user))
-
+    sign_in_as(FactoryBot.create(:user))
     visit reports_url
     click_on '詳細'
     fill_in '投稿内容', with: 'ナイスな日報ですね。'
