@@ -2,15 +2,14 @@ require "application_system_test_case"
 
 class CommentsTest < ApplicationSystemTestCase
   setup do
-    FactoryBot.create(:ruby_book)
-    FactoryBot.create(:report)
+    @book = FactoryBot.create(:ruby_book)
+    @report = FactoryBot.create(:report)
   end
 
   test "本へのコメント" do
     login_user = FactoryBot.create(:user)
     sign_in_as(login_user)
-    visit books_url
-    click_on '表示'
+    visit book_url(@book)
 
     assert_difference('Comment.count', 1) do
       fill_in '投稿内容', with: '素敵な本ですね。'
@@ -23,8 +22,7 @@ class CommentsTest < ApplicationSystemTestCase
 
   test "本へのコメント削除" do
     sign_in_as(FactoryBot.create(:user))
-    visit books_url
-    click_on '表示'
+    visit book_url(@book)
     fill_in '投稿内容', with: '素敵な本ですね。'
     click_on 'コメントする'
 
@@ -38,9 +36,7 @@ class CommentsTest < ApplicationSystemTestCase
   test "日報へのコメント" do
     login_user = FactoryBot.create(:user)
     sign_in_as(login_user)
-
-    visit reports_url
-    click_on '詳細'
+    visit report_url(@report)
     
     assert_difference('Comment.count', 1) do
       fill_in '投稿内容', with: 'ナイスな日報ですね。'
@@ -53,8 +49,7 @@ class CommentsTest < ApplicationSystemTestCase
 
   test "日報へのコメント削除" do
     sign_in_as(FactoryBot.create(:user))
-    visit reports_url
-    click_on '詳細'
+    visit report_url(@report)
     fill_in '投稿内容', with: 'ナイスな日報ですね。'
     click_on 'コメントする'
 
