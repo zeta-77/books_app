@@ -6,14 +6,14 @@ class ReportsTest < ApplicationSystemTestCase
     sign_in_as(FactoryBot.create(:user))
   end
 
-  test 'Reportの一覧表示' do
+  test '日報の一覧ページで、ページを表示したとき、日報の一覧ページが表示されること' do
     visit reports_url
     assert_selector 'h1', text: '日報一覧'
     assert_text '12月10日の日報'
     assert_text 'テストを実装した。'
   end
 
-  test 'Reportの詳細表示' do
+  test '日報の一覧ページで、「詳細」をクリックしたとき、対象の日報の詳細ページが表示されること' do
     visit reports_url
     click_on '詳細'
     page.assert_current_path(report_path(@report))
@@ -23,7 +23,7 @@ class ReportsTest < ApplicationSystemTestCase
     assert_text 'テストを実装した。'
   end
 
-  test 'Reportの新規登録' do
+  test '日報の新規登録ページで、日報を新規登録したとき、その日報が登録されること' do
     visit reports_url
     click_on '日報の新規作成'
     page.assert_current_path(new_report_path)
@@ -42,7 +42,7 @@ class ReportsTest < ApplicationSystemTestCase
     assert_text '肉体改造'
   end
 
-  test 'Reportの編集' do
+  test '日報の編集ページで、日報の情報を編集したとき、その編集内容が反映されること' do
     visit reports_url
     click_on '編集'
     page.assert_current_path(edit_report_path(@report))
@@ -59,7 +59,7 @@ class ReportsTest < ApplicationSystemTestCase
     assert_text 'Railsの課題終了'   
   end
 
-  test 'Reportの削除' do
+  test '日報の一覧ページで、日報を削除したとき、その日報が削除されること' do
     visit reports_url
     assert_text '12月10日の日報'
     assert_difference('Report.count', -1) do

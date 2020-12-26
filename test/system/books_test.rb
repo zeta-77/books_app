@@ -6,19 +6,19 @@ class BooksTest < ApplicationSystemTestCase
     sign_in_as(FactoryBot.create(:user))
   end
 
-  test "ログイン後の初期画面の表示確認" do
+  test "ログイン後に、初期ページが表示されること" do
     assert_selector "h1", text: "アカウント情報"
     assert_selector "h1", text: "フォローしているユーザの一覧"
   end
 
-  test 'Bookの一覧表示' do
+  test '本の一覧ページで、ページを表示したとき、本の一覧ページが表示されること' do
     visit books_url
     assert_text 'Ruby超入門'
     assert_text 'わかりやすい'
     assert_text 'igaigaさん'
   end
 
-  test 'Bookの詳細表示' do
+  test '本の一覧ページで、「表示」をクリックしたとき、対象の本の詳細ページが表示されること' do
     visit books_url
     click_on '表示'
     page.assert_current_path(book_path(@book))
@@ -27,7 +27,7 @@ class BooksTest < ApplicationSystemTestCase
     assert_text 'igaigaさん'
   end
 
-  test 'Bookの新規登録' do
+  test '本の新規作成ページで、本を新規登録したとき、その本が登録されていること' do
     visit books_url
     click_on '新規登録'
     page.assert_current_path(new_book_path)
@@ -48,7 +48,7 @@ class BooksTest < ApplicationSystemTestCase
     assert_text '尾田'
   end
 
-  test 'Bookの編集' do
+  test '本の編集ページで、本の情報を編集したとき、その編集内容が反映されること' do
     visit books_url
     click_on '編集'
     page.assert_current_path(edit_book_path(@book))
@@ -65,7 +65,7 @@ class BooksTest < ApplicationSystemTestCase
     assert_text '五十嵐さん2'   
   end
 
-  test 'Bookの削除' do
+  test '本の一覧ページで、本を削除したとき、その本が削除されること' do
     visit books_url
     assert_text 'Ruby超入門'
     assert_difference('Book.count', 0) do
