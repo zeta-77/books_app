@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class BooksTest < ApplicationSystemTestCase
   setup do
-    FactoryBot.create(:ruby_book, id: '1')
+    @book = FactoryBot.create(:ruby_book)
     sign_in_as(FactoryBot.create(:user))
   end
 
@@ -21,7 +21,7 @@ class BooksTest < ApplicationSystemTestCase
   test 'Bookの詳細表示' do
     visit books_url
     click_on '表示'
-    page.assert_current_path(book_path(1))
+    page.assert_current_path(book_path(@book))
     assert_text 'Ruby超入門'
     assert_text 'わかりやすい'
     assert_text 'igaigaさん'
@@ -39,7 +39,8 @@ class BooksTest < ApplicationSystemTestCase
       click_on '登録する'
     end
     
-    page.assert_current_path(book_path(2))
+    new_book = Book.last
+    page.assert_current_path(book_path(new_book))
 
     assert_selector 'p#notice', text: '本のデータが登録されました。'
     assert_text 'ワンピース'
@@ -50,13 +51,13 @@ class BooksTest < ApplicationSystemTestCase
   test 'Bookの編集' do
     visit books_url
     click_on '編集'
-    page.assert_current_path(edit_book_path(1))
-    
+    page.assert_current_path(edit_book_path(@book))
+
     fill_in 'タイトル', with: 'Ruby超入門2'
     fill_in 'メモ', with: '最新版になりました。'
     fill_in '著者', with: '五十嵐さん2'
     click_on '更新する'
-    page.assert_current_path(book_path(1))
+    page.assert_current_path(book_path(@book))
 
     assert_selector 'p#notice', text: '本のデータが更新されました。'
     assert_text 'Ruby超入門2'

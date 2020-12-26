@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
-    FactoryBot.create(:report, id: '1')
+    @report = FactoryBot.create(:report)
     sign_in_as(FactoryBot.create(:user))
   end
 
@@ -16,7 +16,7 @@ class ReportsTest < ApplicationSystemTestCase
   test 'Reportの詳細表示' do
     visit reports_url
     click_on '詳細'
-    page.assert_current_path(report_path(1))
+    page.assert_current_path(report_path(@report))
     assert_selector 'h1', text: 'レポート詳細'
     assert_selector 'h1', text: 'コメント'
     assert_text '12月10日の日報'
@@ -45,12 +45,12 @@ class ReportsTest < ApplicationSystemTestCase
   test 'Reportの編集' do
     visit reports_url
     click_on '編集'
-    page.assert_current_path(edit_report_path(1))
+    page.assert_current_path(edit_report_path(@report))
 
     fill_in 'タイトル', with: '12月11日の報告'
     fill_in '内容', with: 'Railsの課題終了'
     click_on '更新する'
-    page.assert_current_path(report_path(1))
+    page.assert_current_path(report_path(@report))
 
     assert_selector 'p#notice', text: '日報が更新されました。'
     assert_selector 'h1', text: 'レポート詳細'
