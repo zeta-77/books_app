@@ -27,10 +27,15 @@ class ReportsTest < ApplicationSystemTestCase
     visit reports_url
     click_on '日報の新規作成'
     page.assert_current_path(new_report_path)
-    fill_in 'タイトル', with: '2021年の抱負'
-    fill_in '内容', with: '肉体改造'
-    click_on '登録する'
-    page.assert_current_path(report_path(2))
+
+    assert_difference('Report.count', 1) do
+      fill_in 'タイトル', with: '2021年の抱負'
+      fill_in '内容', with: '肉体改造'
+      click_on '登録する'
+    end
+
+    new_report = Report.last
+    page.assert_current_path(report_path(new_report))
 
     assert_selector 'p#notice', text: '日報が登録されました。'
     assert_text '2021年の抱負'
@@ -57,11 +62,13 @@ class ReportsTest < ApplicationSystemTestCase
   test 'Reportの削除' do
     visit reports_url
     assert_text '12月10日の日報'
-    accept_confirm do
-      click_on '削除'
+    assert_difference('Report.count', -1) do
+      accept_confirm do
+        click_on '削除'
+      end
+      page.assert_current_path(reports_path)
+      assert_selector 'p#notice', text: '日報が削除されました。'
     end
-    page.assert_current_path(reports_path)
-    assert_selector 'p#notice', text: '日報が削除されました。'
     assert_no_text '12月10日の日報'
     assert_selector 'h1', text: '日報一覧'
   end

@@ -31,10 +31,14 @@ class BooksTest < ApplicationSystemTestCase
     visit books_url
     click_on '新規登録'
     page.assert_current_path(new_book_path)
-    fill_in 'タイトル', with: 'ワンピース'
-    fill_in 'メモ', with: 'Dの一族の物語'
-    fill_in '著者', with: '尾田'
-    click_on '登録する'
+
+    assert_difference('Book.count', 1) do
+      fill_in 'タイトル', with: 'ワンピース'
+      fill_in 'メモ', with: 'Dの一族の物語'
+      fill_in '著者', with: '尾田'
+      click_on '登録する'
+    end
+    
     page.assert_current_path(book_path(2))
 
     assert_selector 'p#notice', text: '本のデータが登録されました。'
@@ -47,6 +51,7 @@ class BooksTest < ApplicationSystemTestCase
     visit books_url
     click_on '編集'
     page.assert_current_path(edit_book_path(1))
+    
     fill_in 'タイトル', with: 'Ruby超入門2'
     fill_in 'メモ', with: '最新版になりました。'
     fill_in '著者', with: '五十嵐さん2'
@@ -62,8 +67,10 @@ class BooksTest < ApplicationSystemTestCase
   test 'Bookの削除' do
     visit books_url
     assert_text 'Ruby超入門'
-    accept_confirm do
-      click_on '削除'
+    assert_difference('Book.count', 0) do
+      accept_confirm do
+        click_on '削除'
+      end
     end
     page.assert_current_path(books_path)
     assert_selector 'p#notice', text: '本のデータが削除されました。'
